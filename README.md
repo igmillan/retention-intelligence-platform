@@ -1,157 +1,182 @@
-Case 01 — Retention Intelligence Platform
+# Retention Intelligence Platform
 
-Overview
+End-to-end churn prediction and decision intelligence system for subscription businesses.
 
-An end-to-end retention intelligence framework designed to predict subscription churn, explain behavioral churn drivers, and operationalize retention prioritization using explainable machine learning and business-aware decisioning.
+---
 
-This project simulates a real-world subscription business environment and demonstrates the complete lifecycle of a production-grade data science solution—from synthetic data generation to predictive modeling, explainability, and executive-facing dashboard deployment.
+## Key Results
 
-⸻
+- **0.901 ROC-AUC** (Production XGBoost Model)  
+- **169 High-Risk Users Identified**  
+- **$5,646 Revenue Exposure Quantified**  
+- **SHAP-based behavioral driver analysis**  
 
-Business Problem
+---
 
-Subscription businesses face revenue leakage due to preventable customer churn. Traditional churn analysis often stops at prediction and fails to translate insights into actionable retention strategies.
+## Dashboard Preview
 
-This project solves that gap by creating an intelligence layer that:
-	•	Predicts 30-day churn probability.
-	•	Identifies the behavioral drivers behind churn risk.
-	•	Prioritizes customers by economic exposure.
-	•	Assigns recommended intervention playbooks.
+![Executive Overview](assets/executive_overview.png)  
+![Retention Prioritization](assets/retention_prioritization.png)  
 
-⸻
+---
 
-Solution Architecture
+## Business Problem
 
-1. Simulation Engine
+Subscription platforms face continuous revenue leakage due to preventable customer churn.
 
-Synthetic subscription ecosystem generation for 10,000 users including:
-	•	Demographics
-	•	Plan structure
-	•	Behavioral engagement metrics
-	•	Platform usage metrics
-	•	Simulated churn labels
+Traditional analytics approaches focus on **reporting churn after it happens**, rather than enabling **proactive intervention**.
 
-2. Feature Engineering Pipeline
+This project addresses that gap by building a **retention intelligence system** capable of:
 
-Derived retention intelligence variables including:
-	•	Engagement ratios
-	•	Recency metrics
-	•	Behavioral efficiency KPIs
-	•	Consumption quality indicators
+- predicting churn risk  
+- explaining behavioral drivers  
+- prioritizing users by economic impact  
+- recommending targeted retention actions  
 
-3. Modeling Benchmark
+---
 
-Compared multiple candidate models:
-	•	Logistic Regression
-	•	Random Forest
-	•	XGBoost
+## Solution Overview
 
-Champion model selected via business-aware evaluation framework.
+This platform simulates a production-grade analytics system combining:
 
-4. Explainability Layer
+- predictive modeling  
+- explainable AI  
+- decision intelligence  
 
-SHAP-based model explainability for:
-	•	Global churn driver importance
-	•	Behavioral insight extraction
-	•	User-level driver decomposition
+### Architecture
 
-5. Decision Engine
+Simulation → Features → Modeling → Explainability → Decisioning → Dashboard
 
-Operational scoring layer producing:
-	•	Risk tier assignment
-	•	Revenue at risk estimation
-	•	Priority scoring
-	•	Recommended retention playbooks
+---
 
-6. Dashboard Layer
+## Model Performance
 
-Interactive Streamlit application presenting:
-	•	Executive KPIs
-	•	Benchmark comparison
-	•	Churn driver analysis
-	•	Retention prioritization dashboard
+The system benchmarks multiple models and selects a production champion based on business-aware metrics.
 
-⸻
+| Model | ROC-AUC | PR-AUC | Lift@10% |
+|------|--------|--------|----------|
+| Logistic Regression | 0.82 | 0.49 | 2.1x |
+| Random Forest | 0.88 | 0.61 | 2.9x |
+| **XGBoost (Champion)** | **0.90** | **0.65** | **3.4x** |
 
-Key Results
+### Why XGBoost?
 
-Metric	Value
-Champion Model	XGBoost
-ROC-AUC	0.901
-PR-AUC	0.658
-Critical Users Identified	169
-Revenue Exposure Detected	$5,646
+Selected for its superior balance between:
 
+- ranking quality  
+- precision-recall performance  
+- prioritization efficiency for retention interventions  
 
-⸻
+---
 
-Business Insights
-	•	Churn risk is primarily driven by declining watch time, lower completion rate, and increased inactivity recency.
-	•	Behavioral variables materially outperform demographic variables in predictive importance.
-	•	A concentrated subset of users drives disproportionate revenue exposure, enabling focused intervention strategies.
+## Churn Drivers (Explainability)
 
-⸻
+![SHAP Summary](assets/shap_summary_plot.png)
 
-Tech Stack
-	•	Python
-	•	Pandas / NumPy
-	•	Scikit-learn
-	•	XGBoost
-	•	SHAP
-	•	Plotly
-	•	Streamlit
+Key behavioral drivers of churn:
 
-⸻
+- declining watch time  
+- lower completion rate  
+- increased inactivity  
+- reduced session frequency  
+- lower content diversity  
 
-Repository Structure
+### Insight
 
-case_01_user_retention_churn/
-│
-├── app/
-│   └── dashboard_app.py
-├── config/
-├── data/
-│   ├── raw/
-│   ├── features/
-│   └── scored/
-├── docs/
-├── reports/
-├── src/
-│   ├── simulation/
-│   ├── features/
-│   ├── modeling/
-│   ├── explainability/
-│   ├── decisioning/
-│   └── pipeline/
-└── README.md
+Churn is driven primarily by **behavioral disengagement**, not demographic characteristics.
 
+---
 
-⸻
+## Decision Intelligence Layer
 
-How to Run
+Predictions are operationalized into:
 
-Execute Full Pipeline
+- **Risk Tiers** (Low, Medium, High, Critical)  
+- **Revenue at Risk**  
+- **Priority Scores**  
+- **Retention Playbooks**  
 
-python -m src.pipeline.run_simulation
-python -m src.pipeline.run_features
-python -m src.pipeline.run_modeling
-python -m src.pipeline.run_explainability
-python -m src.pipeline.run_decisioning
+### Example Playbooks
 
-Launch Dashboard
+- Re-engagement nudges  
+- Content discovery boosts  
+- Engagement quality recovery  
+- Commercial retention offers  
 
-streamlit run app/dashboard_app.py
+---
 
+## Business Impact
 
-⸻
+- Enabled proactive retention intervention strategies  
+- Quantified revenue exposure at user level  
+- Shifted analytics from descriptive → predictive → prescriptive  
+- Operationalized ML outputs into decision-ready insights  
 
-Portfolio Positioning
+---
 
-This case demonstrates:
-	•	End-to-end ML system design
-	•	Product-oriented analytics thinking
-	•	Explainable AI implementation
-	•	Decision intelligence / prioritization frameworks
-	•	Executive storytelling and dashboard design
+## Tech Stack
 
-Designed as part of a FAANG-grade Data Science portfolio targeting Apple Decision Intelligence and similar strategic analytics organizations.
+Python  
+pandas / NumPy  
+scikit-learn  
+XGBoost  
+SHAP  
+Plotly  
+Streamlit  
+
+---
+
+## Repository Structure
+
+retention-intelligence-platform/  
+├── app/  
+├── assets/  
+├── config/  
+├── dashboards/  
+├── data/  
+├── docs/  
+├── logs/  
+├── models/  
+├── notebooks/  
+├── reports/  
+├── src/  
+└── README.md  
+
+---
+
+## Quick Start
+
+### 1. Install dependencies
+
+pip install -r requirements.txt  
+
+### 2. Run pipeline
+
+python -m src.pipeline.run_simulation  
+python -m src.pipeline.run_features  
+python -m src.pipeline.run_modeling  
+python -m src.pipeline.run_explainability  
+python -m src.pipeline.run_decisioning  
+
+### 3. Launch dashboard
+
+streamlit run app/dashboard_app.py  
+
+---
+
+## Portfolio Context
+
+This project was developed as part of a **Data Science portfolio targeting Apple Decision Intelligence roles**, demonstrating:
+
+- end-to-end ML system design  
+- explainable AI  
+- decision intelligence frameworks  
+- business-oriented analytics  
+- executive storytelling  
+
+---
+
+## Author
+
+**Israel Gómez Millán**  
+Actuary & Senior Data Scientist
